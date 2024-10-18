@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url("background-image-url.jpg"); 
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive; 
+            margin: 0; 
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 80px 20px 20px; 
+            margin: 0 auto;
+            max-width: 900px;
+            flex-grow: 1;
+        }
+        .portfolio-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .popup {
+            display: none; 
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative; 
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#portfolio">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certification">Certification</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="portfolio" class="container mt-5">        
+        <h1><u>I am VIKAS KANCHAGAR BELAGAL</u></h1>
+        <h2>A Software Enthusiast</h2>
+        <h4>Explore my Portfolio here.</h4>
+        <nav>
+            <a href="#home"><button class="btn btn-primary"><b>Know Me More.</b></button></a>
+        </nav>
+    </section>
+    <section id="home" class="container mt-5">
+        <h2><u>Welcome to My Portfolio</u></h2>
+        <p>Hello! I'm Vikas, an MCA Graduate.</p> 
+        <p>Here you'll find information about my work, projects, and how to get in touch with me.</p>
+        <p>Scroll or use the menu in the header to discover more.</p>
+    </section>
+    <section id="projects">
+        <h2><u>My Projects</u></h2>
+        <div class="portfolio-item" onclick="openPopup('project1')">
+            <h3>Project Management System</h3>
+        </div>
+        <div class="portfolio-item" onclick="openPopup('project2')">
+            <h3>Personal Book Collection using MongoDB</h3>
+        </div>
+        <div class="portfolio-item" onclick="openPopup('project3')">
+            <h3>Home Exercise App using Android Studio</h3>
+        </div>
+        <div class="portfolio-item" onclick="openPopup('project4')">
+            <h3>College Sports Management System</h3>
+        </div>
+        <div class="portfolio-item" onclick="openPopup('project5')">
+            <h3>Restaurant Management (JAVA Café) using Java Swings</h3>
+        </div>
+    </section>
+    <div id="project1" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('project1')">&times;</span>
+            <h3>Project Management System</h3>
+            <p>For a Long period, people engage in various projects innovation. Projects have some distinctive traits which separate them from other activities. However, they are temporary in nature. Projects are mostly indicated by their starting and ending date. These periods are essential since they help an organization to understand various activities that should be engaged. In an organization, projects are essential activities which help to introduce new products. Products introduction is a critical activity that helps to maintain and attract new customers. Furthermore, it helps a business to survive in a competitive environment. Therefore, electrical organizations must engage in projects which will help to introduce new energy saving products. In a project management, companies must ensure that all technical aspects are well integratedtoenhance.</p>
+        </div>
+    </div>
+    <div id="project2" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('project2')">&times;</span>
+            <h3>Personal Book Collection using MongoDB</h3>
+            <p>The Book Collection App is a web-based application designed to help users to manage their personal or organizational book collections efficiently. The primary goal of this project is to provide a user-friendly platform where users can add, view, edit, and delete books, as well as provide feedback on each book. This application leverages the power of the Flask framework and MongoDB to deliver a robust and scalable solution.</p>
+        </div>
+    </div>
+    <div id="project3" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('project3')">&times;</span>
+            <h3>Home Exercise App using Android Studio</h3>
+            <p>The Home Workout App is a mobile application developed using Android Studio and Groovy DSL for build configuration. The app provides a structured weekly workout plan that users can follow at home without the need for gym equipment. Each day of the week features a different set of exercises, complete with instructions and GIF demonstrations to guide users through the movements.</p>
+        </div>
+    </div>
+    <div id="project4" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('project4')">&times;</span>
+            <h3>College Sports Management System</h3>
+            <p>The project "College Sports Management System" is developed using ASP.NET with C# and SQL Server. This web-based application aims to streamline the management of sports activities within a college environment. The system facilitates the administration of sports events, player registrations, and team management. Users with appropriate authentication can access various functionalities such as event scheduling, player statistics, and team coordination. The application provides a comprehensive platform for organizing and tracking sports-related activities, ensuring efficient management and better engagement in college sports.</p>
+        </div>
+    </div>
+    <div id="project5" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('project5')">&times;</span>
+            <h3>Restaurant Management (JAVA Café) using Java Swings</h3>
+            <p>The restaurant Management System (RMS) is a robust desktop application engineered to optimize and streamline the management of restaurant operations. Developed using Java Swing, the RMS offers a rich graphical user interface (GUI) that simplifies the handling of various operational aspects of a café. The system is designed to cater to the needs of restaurant administrators, providing them with an intuitive platform to oversee and control essential functions with ease. The RMS features a comprehensive suite of tools for managing inventory, including the ability to add, delete, and update item records. This functionality ensures that item data remains current and accurate, facilitating efficient inventory management and timely stock replenishment. Additionally, the system includes a module for managing labor details, where administrators can handle employee records—adding, deleting, and updating information related to staff members and their schedules.</p>
+        </div>
+    </div>
+    <section id="certification" class="container mt-5">
+        <h2><u>Certifications</u></h2>
+        <div class="gallery">
+            <img src="image-url-1.jpg" alt="HTML Udemy"> 
+            <img src="image-url-2.jpg" alt="Udemy AS">
+            <img src="image-url-3.jpg" alt="Cloud Udemy">
+            <img src="image-url-4.jpg" alt="Android Studio">
+            <img src="image-url-5.jpg" alt="Course Excel">
+            <img src="image-url-6.jpg" alt="Course">
+        </div>
+    </section>
+    <section id="contact" class="container mt-5">
+        <h2><u>Contact Me</u></h2>
+        <p>If you'd like to get in touch, please:</p>
+        <p><img src="mail-icon-url" width="15" alt="Email"> E-mail me at <a href="mailto:vikaskanchagarbelagal@gmail.com">vikaskanchagarbelagal@gmail.com</a>.</p>
+        <p><img src="call-icon-url" width="15" alt="Phone"> Call me at <a href="callto:+917975089213">+91 7975089213</a>.</p>
+        <p><img src="link-icon-url" width="15" alt="LinkedIn"> LinkedIn <a target="_blank" href="https://www.linkedin.com/in/vikaskanchagarbelagal">Vikas Kanchagar Belagal</a>.</p>
+        <p><img src="github-icon-url" width="15" alt="GitHub"> GitHub <a target="_blank" href="https://github.com/vikaskanchagarbelagal">Vikas Kanchagar Belagal</a>.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Vikas Kanchagar Belagal. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function openPopup(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
